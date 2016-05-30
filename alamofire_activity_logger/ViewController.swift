@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+
+let successURL = "http://www.mocky.io/v2/574c43dc100000760eed69ca"
+let failURL = "http://www.mocky.io/v2/574c440d100000860eed69cb"
 
 class ViewController: UIViewController {
 

@@ -1,22 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YI6-JS-6h0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="tUR-EL-2Vx">
+            <objects>
+                <navigationController id="YI6-JS-6h0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="9ea-VJ-YeT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="E7w-YA-9qj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8cy-KU-Qxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-463" y="359"/>
+        </scene>
+        <!--Alamofire Activity Logger-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="alamofire_activity_logger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vis-N1-TWR">
+                                <rect key="frame" x="126" y="20" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-po-Qjb">
+                                <rect key="frame" x="100" y="49" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BR0-8F-Gzp">
+                                <rect key="frame" x="81" y="107" width="160" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jam-FW-bjb">
+                                        <rect key="frame" x="111" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pretty Print?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djX-IK-0NU">
+                                        <rect key="frame" x="0.0" y="5" width="95" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jam-FW-bjb" secondAttribute="bottom" id="7f1-Eg-bLL"/>
+                                    <constraint firstItem="jam-FW-bjb" firstAttribute="top" secondItem="BR0-8F-Gzp" secondAttribute="top" id="OcO-8A-tlk"/>
+                                    <constraint firstItem="djX-IK-0NU" firstAttribute="leading" secondItem="BR0-8F-Gzp" secondAttribute="leading" id="fKL-hA-kT1"/>
+                                    <constraint firstItem="jam-FW-bjb" firstAttribute="leading" secondItem="djX-IK-0NU" secondAttribute="trailing" constant="16" id="hv7-Se-g6V"/>
+                                    <constraint firstAttribute="trailing" secondItem="jam-FW-bjb" secondAttribute="trailing" id="kMc-AV-H4e"/>
+                                    <constraint firstItem="djX-IK-0NU" firstAttribute="centerY" secondItem="jam-FW-bjb" secondAttribute="centerY" id="x8m-SL-ZqW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5T-25-UyU">
+                                <rect key="frame" x="66" y="154" width="189" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GhW-34-hAh">
+                                        <rect key="frame" x="140" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omit separator?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW7-zv-PHz">
+                                        <rect key="frame" x="0.0" y="5" width="124" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="pW7-zv-PHz" firstAttribute="centerY" secondItem="GhW-34-hAh" secondAttribute="centerY" id="26u-eQ-Tf6"/>
+                                    <constraint firstAttribute="bottom" secondItem="GhW-34-hAh" secondAttribute="bottom" id="EaJ-2t-MdE"/>
+                                    <constraint firstAttribute="trailing" secondItem="GhW-34-hAh" secondAttribute="trailing" id="J3j-UY-kGa"/>
+                                    <constraint firstItem="GhW-34-hAh" firstAttribute="leading" secondItem="pW7-zv-PHz" secondAttribute="trailing" constant="16" id="M2g-tA-qX5"/>
+                                    <constraint firstItem="GhW-34-hAh" firstAttribute="top" secondItem="Q5T-25-UyU" secondAttribute="top" id="wKx-6K-8hn"/>
+                                    <constraint firstItem="pW7-zv-PHz" firstAttribute="leading" secondItem="Q5T-25-UyU" secondAttribute="leading" id="yzq-cg-6CW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0a-Eg-yNC">
+                                <rect key="frame" x="95" y="215" width="131" height="30"/>
+                                <state key="normal" title="Successful request"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFt-kQ-5S4">
+                                <rect key="frame" x="95" y="261" width="131" height="30"/>
+                                <state key="normal" title="Error request">
+                                    <color key="titleColor" red="0.75687099358974352" green="0.0" blue="0.0070856412194052155" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d0a-Eg-yNC" firstAttribute="top" secondItem="Q5T-25-UyU" secondAttribute="bottom" constant="30" id="1Ja-kE-51C"/>
+                            <constraint firstItem="Vis-N1-TWR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="3mg-8f-uwb"/>
+                            <constraint firstItem="Yrk-po-Qjb" firstAttribute="centerX" secondItem="Vis-N1-TWR" secondAttribute="centerX" id="J6I-fS-JuO"/>
+                            <constraint firstItem="Vis-N1-TWR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Occ-m4-mjd"/>
+                            <constraint firstItem="Q5T-25-UyU" firstAttribute="top" secondItem="BR0-8F-Gzp" secondAttribute="bottom" constant="16" id="Pbc-h4-lkl"/>
+                            <constraint firstItem="Q5T-25-UyU" firstAttribute="centerX" secondItem="BR0-8F-Gzp" secondAttribute="centerX" id="Pfk-hS-Zl9"/>
+                            <constraint firstItem="lFt-kQ-5S4" firstAttribute="centerX" secondItem="d0a-Eg-yNC" secondAttribute="centerX" id="Snq-oQ-cR0"/>
+                            <constraint firstItem="lFt-kQ-5S4" firstAttribute="top" secondItem="d0a-Eg-yNC" secondAttribute="bottom" constant="16" id="f4e-wb-wtd"/>
+                            <constraint firstItem="BR0-8F-Gzp" firstAttribute="top" secondItem="Yrk-po-Qjb" secondAttribute="bottom" constant="30" id="jls-aT-tW8"/>
+                            <constraint firstItem="Yrk-po-Qjb" firstAttribute="top" secondItem="Vis-N1-TWR" secondAttribute="bottom" constant="8" id="qJA-Q8-gt6"/>
+                            <constraint firstItem="d0a-Eg-yNC" firstAttribute="centerX" secondItem="Q5T-25-UyU" secondAttribute="centerX" id="r0H-Gc-yyz"/>
+                            <constraint firstItem="BR0-8F-Gzp" firstAttribute="centerX" secondItem="Yrk-po-Qjb" secondAttribute="centerX" id="u37-0X-Hbt"/>
+                            <constraint firstItem="lFt-kQ-5S4" firstAttribute="width" secondItem="d0a-Eg-yNC" secondAttribute="width" id="zqJ-Y5-86A"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Alamofire Activity Logger" id="CYg-cn-ml5"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
