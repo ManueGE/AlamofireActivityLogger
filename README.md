@@ -77,4 +77,4 @@ Are instances of the enum `LogOption`. The available values are:
 
 ## License
 
-Raccoon is available under the [MIT license](LICENSE.md).
+AlamofireActivityLogger is available under the [MIT license](LICENSE.md).
