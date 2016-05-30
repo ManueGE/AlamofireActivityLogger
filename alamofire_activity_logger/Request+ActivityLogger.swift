@@ -40,7 +40,7 @@ public enum LogLevel {
  */
 public enum LogOptions {
     case JSONPrettyPrint
-    case OmitSeparatorString
+    case IncludeSeparator
 }
 
 private let NullString = "(null)"
@@ -83,7 +83,7 @@ extension Request {
         let url = request.URL?.absoluteString ?? NullString
         let headers = prettyPrintedStringFromJSON(request.allHTTPHeaderFields) ?? NullString
         
-        let separator = options.contains(.OmitSeparatorString) ? "" : "\(SeparatorString)\n"
+        let separator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
         
         switch (level) {
         case .All:
@@ -133,7 +133,7 @@ extension Request {
         let elapsedTime = String(format: "[%.4f s]", self.elapsedTime)
         
         // separator
-        let separator = options.contains(.OmitSeparatorString) ? "" : "\(SeparatorString)\n"
+        let separator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
         
         // log
         if let error = error {
