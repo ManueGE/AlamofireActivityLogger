@@ -41,6 +41,10 @@ public enum LogLevel {
 public enum LogOptions {
     case JSONPrettyPrint
     case IncludeSeparator
+    
+    static var defaultOptions: [LogOptions] {
+        return [.JSONPrettyPrint, .IncludeSeparator]
+    }
 }
 
 private let NullString = "(null)"
@@ -51,7 +55,7 @@ extension Request {
     /** 
      Log the request and response with the given level and options. It just works if the app is in debug.
      */
-    public func debugLog(level: LogLevel = .All, options: [LogOptions] = [.JSONPrettyPrint]) -> Self {
+    public func debugLog(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
         if AppIsDebugMode {
             return log(level, options: options)
         }
@@ -63,7 +67,7 @@ extension Request {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .All, options: [LogOptions] = [.JSONPrettyPrint]) -> Self {
+    public func log(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
         
         guard level != .None else {
             return self
