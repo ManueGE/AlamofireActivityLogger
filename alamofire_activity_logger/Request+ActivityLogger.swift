@@ -41,6 +41,10 @@ public enum LogLevel {
 public enum LogOptions {
     case JSONPrettyPrint
     case IncludeSeparator
+    
+    static var defaultOptions: [LogOptions] {
+        return [.JSONPrettyPrint, .IncludeSeparator]
+    }
 }
 
 private let NullString = "(null)"
@@ -51,7 +55,7 @@ extension Request {
     /** 
      Log the request and response with the given level and options. It just works if the app is in debug.
      */
-    public func debugLog(level: LogLevel = .All, options: [LogOptions] = [.JSONPrettyPrint]) -> Self {
+    public func debugLog(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
         if AppIsDebugMode {
             return log(level, options: options)
         }
@@ -63,7 +67,7 @@ extension Request {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .All, options: [LogOptions] = [.JSONPrettyPrint]) -> Self {
+    public func log(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
         
         guard level != .None else {
             return self
@@ -83,16 +87,18 @@ extension Request {
         let url = request.URL?.absoluteString ?? NullString
         let headers = prettyPrintedStringFromJSON(request.allHTTPHeaderFields) ?? NullString
         
-        let separator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
+        // separator
+        let openSeparator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
+        let closeSeparator = options.contains(.IncludeSeparator) ? "\n\(SeparatorString)" : ""
         
         switch (level) {
         case .All:
             let prettyPrint = options.contains(.JSONPrettyPrint)
             let body = stringFromData(request.HTTPBody, prettyPrint: prettyPrint) ?? NullString
-            print("\(separator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(separator)")
+            print("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)")
             
         case .Info:
-            print("\(separator)[Request] \(method) '\(url)'\(separator)")
+            print("\(openSeparator)[Request] \(method) '\(url)'\(closeSeparator)")
             
         default:
             break
@@ -133,7 +139,8 @@ extension Request {
         let elapsedTime = String(format: "[%.4f s]", self.elapsedTime)
         
         // separator
-        let separator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
+        let openSeparator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
+        let closeSeparator = options.contains(.IncludeSeparator) ? "\n\(SeparatorString)" : ""
         
         // log
         if let error = error {
@@ -141,16 +148,16 @@ extension Request {
             case .None:
                 break
             default:
-                print("\(separator)[Response Error] \(requestMethod) '\(requestUrl)' \(elapsedTime) s: \(error)\(separator)")
+                print("\(openSeparator)[Response Error] \(requestMethod) '\(requestUrl)' \(elapsedTime) s: \(error)\(closeSeparator)")
             }
         }
             
         else {
             switch level {
             case .All:
-                print("\(separator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(separator)")
+                print("\(openSeparator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
             case .Info:
-                print("\(separator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime)\(separator)")
+                print("\(openSeparator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime)\(closeSeparator)")
             default:
                 break
             }
