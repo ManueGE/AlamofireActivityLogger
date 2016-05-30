@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         self.setViewEnabled(false)
         request(.GET, URL)
             .validate()
-            .debugLog(level, options: options)
+            .log(level, options: options)
             .responseData { (response) in
                 self.setViewEnabled(true)
         }
@@ -78,4 +78,5 @@ class ViewController: UIViewController {
         views.forEach( { $0.enabled = enabled } )
     }
 }
+
 

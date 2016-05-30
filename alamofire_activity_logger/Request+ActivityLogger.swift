@@ -34,16 +34,23 @@ public enum LogLevel {
 
 /** 
  Login options
+
+ `OnlyDebug`
+ Only logs if the app is in Debug mode
  
  `JSONPrettyPrint`
  Prints the JSON body on request and response 
+ 
+ `IncludeSeparator`
+ Include a separator string at the begining and end of each section
  */
-public enum LogOptions {
+public enum LogOption {
+    case OnlyDebug
     case JSONPrettyPrint
     case IncludeSeparator
     
-    static var defaultOptions: [LogOptions] {
-        return [.JSONPrettyPrint, .IncludeSeparator]
+    static var defaultOptions: [LogOption] {
+        return [.OnlyDebug, .JSONPrettyPrint, .IncludeSeparator]
     }
 }
 
@@ -52,24 +59,17 @@ private let SeparatorString = "*******************************"
 
 extension Request {
     
-    /** 
-     Log the request and response with the given level and options. It just works if the app is in debug.
-     */
-    public func debugLog(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
-        if AppIsDebugMode {
-            return log(level, options: options)
-        }
-        else {
-            return self
-        }
-    }
-    
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .All, options: [LogOptions] = LogOptions.defaultOptions) -> Self {
-        
+    public func log(level: LogLevel = .All, options: [LogOption] = LogOption.defaultOptions) -> Self {
+
         guard level != .None else {
+            return self
+        }
+        
+        let debugOption = options.contains(.OnlyDebug)
+        if debugOption && !AppIsDebugMode {
             return self
         }
         
@@ -77,7 +77,7 @@ extension Request {
         return logRequest(level, options: options).logResponse(level, options: options)
     }
     
-    private func logRequest(level: LogLevel, options: [LogOptions]) -> Self {
+    private func logRequest(level: LogLevel, options: [LogOption]) -> Self {
         
         guard let request = request else {
             return self
@@ -107,13 +107,13 @@ extension Request {
         return self
     }
     
-    private func logResponse(level: LogLevel, options: [LogOptions]) -> Self {
+    private func logResponse(level: LogLevel, options: [LogOption]) -> Self {
         return response(completionHandler: { (request, httpResponse, data, error) in
             self.logResponse(request, httpResponse: httpResponse, data: data, error: error, level: level, options: options)
         })
     }
     
-    private func logResponse(request: NSURLRequest?, httpResponse: NSHTTPURLResponse?, data: NSData?, error: NSError?, level: LogLevel, options: [LogOptions]) {
+    private func logResponse(request: NSURLRequest?, httpResponse: NSHTTPURLResponse?, data: NSData?, error: NSError?, level: LogLevel, options: [LogOption]) {
         
         guard level != .None else {
             return
