@@ -13,6 +13,7 @@
 		321C5A0D1CFC18BB0012B3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A0B1CFC18BB0012B3AB /* Main.storyboard */; };
 		321C5A0F1CFC18BB0012B3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A0E1CFC18BB0012B3AB /* Assets.xcassets */; };
 		321C5A121CFC18BB0012B3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A101CFC18BB0012B3AB /* LaunchScreen.storyboard */; };
+		329A87771CFC7944009EDF62 /* Request+ActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329A87761CFC7944009EDF62 /* Request+ActivityLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		321C5A0E1CFC18BB0012B3AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		321C5A111CFC18BB0012B3AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		321C5A131CFC18BB0012B3AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329A87761CFC7944009EDF62 /* Request+ActivityLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+ActivityLogger.swift"; sourceTree = "<group>"; };
 		7217BDD32FCA70DE74D4F740 /* Pods-alamofire_activity_logger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger/Pods-alamofire_activity_logger.release.xcconfig"; sourceTree = "<group>"; };
 		91AC135CEBC95522C33F2226 /* Pods_alamofire_activity_logger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4426DEA1C1CE94382835E6C /* Pods-alamofire_activity_logger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger/Pods-alamofire_activity_logger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				321C5A071CFC18BB0012B3AB /* AppDelegate.swift */,
 				321C5A091CFC18BB0012B3AB /* ViewController.swift */,
+				329A87761CFC7944009EDF62 /* Request+ActivityLogger.swift */,
 				321C5A0B1CFC18BB0012B3AB /* Main.storyboard */,
 				321C5A0E1CFC18BB0012B3AB /* Assets.xcassets */,
 				321C5A101CFC18BB0012B3AB /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			files = (
 				321C5A0A1CFC18BB0012B3AB /* ViewController.swift in Sources */,
 				321C5A081CFC18BB0012B3AB /* AppDelegate.swift in Sources */,
+				329A87771CFC7944009EDF62 /* Request+ActivityLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
