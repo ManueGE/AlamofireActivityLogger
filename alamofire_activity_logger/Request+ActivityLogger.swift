@@ -11,8 +11,9 @@ import ObjectiveC
 
 var ElapsedTimeHandle: UInt8 = 0
 
-/** 
+/**
  Log levels
+ 
  `None`
  Do not log requests or responses.
  
@@ -32,14 +33,14 @@ public enum LogLevel {
     case Error
 }
 
-/** 
+/**
  Login options
-
+ 
  `OnlyDebug`
  Only logs if the app is in Debug mode
  
  `JSONPrettyPrint`
- Prints the JSON body on request and response 
+ Prints the JSON body on request and response
  
  `IncludeSeparator`
  Include a separator string at the begining and end of each section
@@ -63,7 +64,7 @@ extension Request {
      Log the request and response with the given level and options
      */
     public func log(level: LogLevel = .All, options: [LogOption] = LogOption.defaultOptions) -> Self {
-
+        
         guard level != .None else {
             return self
         }
@@ -143,24 +144,18 @@ extension Request {
         let closeSeparator = options.contains(.IncludeSeparator) ? "\n\(SeparatorString)" : ""
         
         // log
-        if let error = error {
-            switch level {
-            case .None:
-                break
-            default:
-                print("\(openSeparator)[Response Error] \(requestMethod) '\(requestUrl)' \(elapsedTime) s: \(error)\(closeSeparator)")
+        let responseTitle = error == nil ? "Response" : "Response Error"
+        switch level {
+        case .All:
+            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTime):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
+        case .Info:
+            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTime)\(closeSeparator)")
+        case .Error:
+            if let error = error {
+                print("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTime) s: \(error)\(closeSeparator)")
             }
-        }
-            
-        else {
-            switch level {
-            case .All:
-                print("\(openSeparator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
-            case .Info:
-                print("\(openSeparator)[Response] \(responseStatusCode) '\(requestUrl)' \(elapsedTime)\(closeSeparator)")
-            default:
-                break
-            }
+        default:
+            break
         }
     }
     
