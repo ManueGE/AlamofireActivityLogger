@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     private func performRequest(withURL URL: String) {
         
         // Build options
-        var options: [LogOptions] = []
+        var options: [LogOption] = []
         
         if prettyPrintSwitch.on {
             options.append(.JSONPrettyPrint)

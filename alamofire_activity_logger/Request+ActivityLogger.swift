@@ -13,6 +13,7 @@ var ElapsedTimeHandle: UInt8 = 0
 
 /** 
  Log levels
+ 
  `None`
  Do not log requests or responses.
  
