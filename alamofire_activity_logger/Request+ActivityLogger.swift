@@ -58,7 +58,7 @@ public enum LogOption {
 private let NullString = "(null)"
 private let SeparatorString = "*******************************"
 
-extension Request {
+extension DataRequest {
     
     /**
      Log the request and response with the given level and options
@@ -74,8 +74,8 @@ extension Request {
             return self
         }
         
-        startDate = NSDate()
-        return logRequest(level, options: options).logResponse(level, options: options)
+        startDate = Date()
+        return logRequest(level: level, options: options).logResponse(level: level, options: options)
     }
     
     private func logRequest(level: LogLevel, options: [LogOption]) -> Self {
@@ -84,9 +84,9 @@ extension Request {
             return self
         }
         
-        let method = request.HTTPMethod!
-        let url = request.URL?.absoluteString ?? NullString
-        let headers = prettyPrintedStringFromJSON(request.allHTTPHeaderFields) ?? NullString
+        let method = request.httpMethod!
+        let url = request.url?.absoluteString ?? NullString
+        let headers = prettyPrintedString(from: request.allHTTPHeaderFields) ?? NullString
         
         // separator
         let openSeparator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
@@ -95,7 +95,7 @@ extension Request {
         switch (level) {
         case .All:
             let prettyPrint = options.contains(.JSONPrettyPrint)
-            let body = stringFromData(request.HTTPBody, prettyPrint: prettyPrint) ?? NullString
+            let body = string(from: request.httpBody, prettyPrint: prettyPrint) ?? NullString
             print("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)")
             
         case .Info:
@@ -109,12 +109,18 @@ extension Request {
     }
     
     private func logResponse(level: LogLevel, options: [LogOption]) -> Self {
-        return response(completionHandler: { (request, httpResponse, data, error) in
-            self.logResponse(request, httpResponse: httpResponse, data: data, error: error, level: level, options: options)
-        })
+        
+        return response { (response) in
+            self.logResponse(request: response.request,
+                             httpResponse: response.response,
+                             data: response.data,
+                             error: response.error,
+                             level: level,
+                             options: options)
+        }
     }
     
-    private func logResponse(request: NSURLRequest?, httpResponse: NSHTTPURLResponse?, data: NSData?, error: NSError?, level: LogLevel, options: [LogOption]) {
+    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {
         
         guard level != .None else {
             return
@@ -128,13 +134,13 @@ extension Request {
         let prettyPrint = options.contains(.JSONPrettyPrint)
         
         // request
-        let requestMethod = request?.HTTPMethod ?? NullString
-        let requestUrl = request?.URL?.absoluteString ?? NullString
+        let requestMethod = request?.httpMethod ?? NullString
+        let requestUrl = request?.url?.absoluteString ?? NullString
         
         // response
         let responseStatusCode = httpResponse?.statusCode ?? 0
-        let responseHeaders = prettyPrintedStringFromJSON(httpResponse?.allHeaderFields) ?? NullString
-        let responseData = stringFromData(data, prettyPrint: prettyPrint) ?? NullString
+        let responseHeaders = prettyPrintedString(from: httpResponse?.allHeaderFields) ?? NullString
+        let responseData = string(from: data, prettyPrint: prettyPrint) ?? NullString
         
         // time
         let elapsedTime = String(format: "[%.4f s]", self.elapsedTime)
@@ -160,24 +166,24 @@ extension Request {
     }
     
     // MARK: Elapsed time
-    var startDate: NSDate {
+    var startDate: Date {
         get {
-            return objc_getAssociatedObject(self, &ElapsedTimeHandle) as? NSDate ?? NSDate()
+            return objc_getAssociatedObject(self, &ElapsedTimeHandle) as? Date ?? Date()
         }
         set {
             objc_setAssociatedObject(self, &ElapsedTimeHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
-    var elapsedTime: NSTimeInterval {
-        return NSDate().timeIntervalSinceDate(startDate)
+    var elapsedTime: TimeInterval {
+        return Date().timeIntervalSince(startDate)
     }
 }
 
 // MARK: Helpers
 private let AppIsDebugMode = _isDebugAssertConfiguration()
 
-private func stringFromData(data: NSData?, prettyPrint: Bool) -> String? {
+private func string(from data: Data?, prettyPrint: Bool) -> String? {
     
     guard let data = data else {
         return nil
@@ -186,27 +192,27 @@ private func stringFromData(data: NSData?, prettyPrint: Bool) -> String? {
     var response: String? = nil
     
     if prettyPrint,
-        let json = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
-        let prettyString = prettyPrintedStringFromJSON(json) {
+        let json = try? JSONSerialization.jsonObject(with: data, options: []),
+        let prettyString = prettyPrintedString(from: json) {
         response = prettyString
     }
         
-    else if let dataString = String.init(data: data, encoding: NSUTF8StringEncoding) {
+    else if let dataString = String.init(data: data, encoding: .utf8) {
         response = dataString
     }
     
     return response
 }
 
-private func prettyPrintedStringFromJSON(json: AnyObject?) -> String? {
+private func prettyPrintedString(from json: Any?) -> String? {
     guard let json = json else {
         return nil
     }
     
     var response: String? = nil
     
-    if let data = try? NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted),
-        dataString = String.init(data: data, encoding: NSUTF8StringEncoding) {
+    if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
+        let dataString = String.init(data: data, encoding: .utf8) {
         response = dataString
     }
     
