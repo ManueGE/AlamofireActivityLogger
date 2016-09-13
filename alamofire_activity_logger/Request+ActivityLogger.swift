@@ -133,6 +133,35 @@ extension DataRequest: LogeableRequest {
     }
 }
 
+extension DownloadRequest: LogeableRequest {
+    public func logResponse(level: LogLevel, options: [LogOption]) -> Self {
+        responseData { (response) in
+            
+            var error: Error? = nil
+            var data: Data? = nil
+            
+            switch response.result {
+            case let .success(value):
+                data = value
+            case let .failure(value):
+                error = value
+            }
+            
+            logResponsee(request: response.request,
+                         httpResponse: response.response,
+                         data: data,
+                         error: error,
+                         elapsedTime:  response.timeline.requestDuration,
+                         level: level,
+                         options: options)
+        }
+        
+        return self
+    }
+}
+
+
+
 // MARK: Helpers
 private let AppIsDebugMode = _isDebugAssertConfiguration()
 
