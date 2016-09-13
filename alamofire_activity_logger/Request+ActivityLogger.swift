@@ -9,8 +9,6 @@ import Foundation
 import Alamofire
 import ObjectiveC
 
-var ElapsedTimeHandle: UInt8 = 0
-
 /**
  Log levels
  
@@ -58,7 +56,12 @@ public enum LogOption {
 private let NullString = "(null)"
 private let SeparatorString = "*******************************"
 
-extension DataRequest {
+public protocol LogeableRequest: AnyObject {
+    func logResponse(level: LogLevel, options: [LogOption]) -> Self
+    var request: URLRequest? { get }
+}
+
+public extension LogeableRequest {
     
     /**
      Log the request and response with the given level and options
@@ -73,8 +76,7 @@ extension DataRequest {
         if debugOption && !AppIsDebugMode {
             return self
         }
-        
-        startDate = Date()
+    
         return logRequest(level: level, options: options).logResponse(level: level, options: options)
     }
     
@@ -107,76 +109,27 @@ extension DataRequest {
         
         return self
     }
-    
-    private func logResponse(level: LogLevel, options: [LogOption]) -> Self {
-        
-        return response { (response) in
-            self.logResponse(request: response.request,
-                             httpResponse: response.response,
-                             data: response.data,
-                             error: response.error,
-                             level: level,
-                             options: options)
-        }
-    }
-    
-    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {
-        
-        guard level != .None else {
-            return
-        }
-        
-        if request == nil && httpResponse == nil {
-            return
-        }
-        
-        // options
-        let prettyPrint = options.contains(.JSONPrettyPrint)
-        
-        // request
-        let requestMethod = request?.httpMethod ?? NullString
-        let requestUrl = request?.url?.absoluteString ?? NullString
-        
-        // response
-        let responseStatusCode = httpResponse?.statusCode ?? 0
-        let responseHeaders = prettyPrintedString(from: httpResponse?.allHeaderFields) ?? NullString
-        let responseData = string(from: data, prettyPrint: prettyPrint) ?? NullString
-        
-        // time
-        let elapsedTime = String(format: "[%.4f s]", self.elapsedTime)
-        
-        // separator
-        let openSeparator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
-        let closeSeparator = options.contains(.IncludeSeparator) ? "\n\(SeparatorString)" : ""
-        
-        // log
-        let responseTitle = error == nil ? "Response" : "Response Error"
-        switch level {
-        case .All:
-            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTime):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
-        case .Info:
-            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTime)\(closeSeparator)")
-        case .Error:
-            if let error = error {
-                print("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTime) s: \(error)\(closeSeparator)")
+}
+
+extension DataRequest: LogeableRequest {
+    public func logResponse(level: LogLevel, options: [LogOption]) -> Self {
+        responseData { (response) in
+            
+            var error: Error? = nil
+            if case .failure(let e) = response.result {
+                error = e
             }
-        default:
-            break
+            
+            logResponsee(request: response.request,
+                         httpResponse: response.response,
+                         data: response.data,
+                         error: error,
+                         elapsedTime:  response.timeline.requestDuration,
+                         level: level,
+                         options: options)
         }
-    }
-    
-    // MARK: Elapsed time
-    var startDate: Date {
-        get {
-            return objc_getAssociatedObject(self, &ElapsedTimeHandle) as? Date ?? Date()
-        }
-        set {
-            objc_setAssociatedObject(self, &ElapsedTimeHandle, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    var elapsedTime: TimeInterval {
-        return Date().timeIntervalSince(startDate)
+        
+        return self
     }
 }
 
@@ -217,4 +170,49 @@ private func prettyPrintedString(from json: Any?) -> String? {
     }
     
     return response
+}
+
+func logResponsee(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, elapsedTime: TimeInterval, level: LogLevel, options: [LogOption]) {
+    
+    guard level != .None else {
+        return
+    }
+    
+    if request == nil && httpResponse == nil {
+        return
+    }
+    
+    // options
+    let prettyPrint = options.contains(.JSONPrettyPrint)
+    
+    // request
+    let requestMethod = request?.httpMethod ?? NullString
+    let requestUrl = request?.url?.absoluteString ?? NullString
+    
+    // response
+    let responseStatusCode = httpResponse?.statusCode ?? 0
+    let responseHeaders = prettyPrintedString(from: httpResponse?.allHeaderFields) ?? NullString
+    let responseData = string(from: data, prettyPrint: prettyPrint) ?? NullString
+    
+    // time
+    let elapsedTimeString = String(format: "[%.4f s]", elapsedTime)
+    
+    // separator
+    let openSeparator = options.contains(.IncludeSeparator) ? "\(SeparatorString)\n" : ""
+    let closeSeparator = options.contains(.IncludeSeparator) ? "\n\(SeparatorString)" : ""
+    
+    // log
+    let responseTitle = error == nil ? "Response" : "Response Error"
+    switch level {
+    case .All:
+        print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
+    case .Info:
+        print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString)\(closeSeparator)")
+    case .Error:
+        if let error = error {
+            print("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTimeString) s: \(error)\(closeSeparator)")
+        }
+    default:
+        break
+    }
 }
