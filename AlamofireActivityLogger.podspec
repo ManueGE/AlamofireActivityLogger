@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.framework = "Foundation"
   spec.dependency "Alamofire", "~> 4.0"
-  spec.source_files  = "alamofire_activity_logger/Request+ActivityLogger.swift"
+  spec.source_files  = "alamofire_activity_logger/ActivityLogger/*.{swift}"
 
   spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 

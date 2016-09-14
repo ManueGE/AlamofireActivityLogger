@@ -13,44 +13,44 @@ private let appIsDebugMode = _isDebugAssertConfiguration()
 /**
  Log levels
  
- `None`
+ `none`
  Do not log requests or responses.
  
- `All`
+ `all`
  Logs HTTP method, URL, header fields, & request body for requests, and status code, URL, header fields, response string, & elapsed time for responses.
  
- `Info`
+ `info`
  Logs HTTP method & URL for requests, and status code, URL, & elapsed time for responses.
  
- `Error`
+ `error`
  Logs HTTP method & URL for requests, and status code, URL, & elapsed time for responses, but only for failed requests.
  */
 public enum LogLevel {
-    case None
-    case All
-    case Info
-    case Error
+    case none
+    case all
+    case info
+    case error
 }
 
 /**
  Login options
  
- `OnlyDebug`
+ `onlyDebug`
  Only logs if the app is in Debug mode
  
- `JSONPrettyPrint`
+ `jsonPrettyPrint`
  Prints the JSON body on request and response
  
- `IncludeSeparator`
+ `includeSeparator`
  Include a separator string at the begining and end of each section
  */
 public enum LogOption {
-    case OnlyDebug
-    case JSONPrettyPrint
-    case IncludeSeparator
+    case onlyDebug
+    case jsonPrettyPrint
+    case includeSeparator
     
     static var defaultOptions: [LogOption] {
-        return [.OnlyDebug, .JSONPrettyPrint, .IncludeSeparator]
+        return [.onlyDebug, .jsonPrettyPrint, .includeSeparator]
     }
 }
 
@@ -84,13 +84,13 @@ public extension LoggeableRequest {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .All, options: [LogOption] = LogOption.defaultOptions) -> Self {
+    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions) -> Self {
         
-        guard level != .None else {
+        guard level != .none else {
             return self
         }
         
-        let debugOption = options.contains(.OnlyDebug)
+        let debugOption = options.contains(.onlyDebug)
         if debugOption && !appIsDebugMode {
             return self
         }
