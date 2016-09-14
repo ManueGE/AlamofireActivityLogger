@@ -15,10 +15,10 @@ let failURL = "http://www.mocky.io/v2/574c440d100000860eed69cb"
 class ViewController: UIViewController {
     
     let levels: [(LogLevel, String)] = [
-        (.None, "None"),
-        (.All, "All"),
-        (.Info, "Info"),
-        (.Error, "Error")
+        (.none, "None"),
+        (.all, "All"),
+        (.info, "Info"),
+        (.error, "Error")
     ]
     
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -31,20 +31,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         segmentedControl.removeAllSegments()
-        levels.enumerate().forEach { (index, element) in
-            segmentedControl.insertSegmentWithTitle(element.1,
-                atIndex: index,
+        levels.enumerated().forEach { (index, element) in
+            segmentedControl.insertSegment(withTitle: element.1,
+                at: index,
                 animated: false)
         }
         segmentedControl.selectedSegmentIndex = 1
     }
     
     // MARK: Actions
-    @IBAction func didPressSuccess(sender: AnyObject) {
+    @IBAction func didPressSuccess(_ sender: AnyObject) {
         performRequest(withURL: successURL)
     }
-    
-    @IBAction func didPressError(sender: AnyObject) {
+
+    @IBAction func didPressError(_ sender: AnyObject) {
         performRequest(withURL: failURL)
     }
     
@@ -53,30 +53,33 @@ class ViewController: UIViewController {
         // Build options
         var options: [LogOption] = []
         
-        if prettyPrintSwitch.on {
-            options.append(.JSONPrettyPrint)
+        if prettyPrintSwitch.isOn {
+            options.append(.jsonPrettyPrint)
         }
         
-        if includeSeparatorSwift.on {
-            options.append(.IncludeSeparator)
+        if includeSeparatorSwift.isOn {
+            options.append(.includeSeparator)
         }
         
         // Level
         let level = levels[segmentedControl.selectedSegmentIndex].0
         
         self.setViewEnabled(false)
-        request(.GET, URL)
+        request(URL, method: .get)
             .validate()
-            .log(level, options: options)
+            .log(level: level, options: options)
             .responseData { (response) in
                 self.setViewEnabled(true)
         }
     }
     
     // MARK: Helpers
-    func setViewEnabled(enabled: Bool) {
-        views.forEach( { $0.enabled = enabled } )
+    func setViewEnabled(_ enabled: Bool) {
+        views.forEach { $0.isEnabled = enabled }
     }
+    
+    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {}
+        
 }
 
 
