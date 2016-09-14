@@ -15,10 +15,10 @@ let failURL = "http://www.mocky.io/v2/574c440d100000860eed69cb"
 class ViewController: UIViewController {
     
     let levels: [(LogLevel, String)] = [
-        (.None, "None"),
-        (.All, "All"),
-        (.Info, "Info"),
-        (.Error, "Error")
+        (.none, "None"),
+        (.all, "All"),
+        (.info, "Info"),
+        (.error, "Error")
     ]
     
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -54,11 +54,11 @@ class ViewController: UIViewController {
         var options: [LogOption] = []
         
         if prettyPrintSwitch.isOn {
-            options.append(.JSONPrettyPrint)
+            options.append(.jsonPrettyPrint)
         }
         
         if includeSeparatorSwift.isOn {
-            options.append(.IncludeSeparator)
+            options.append(.includeSeparator)
         }
         
         // Level
