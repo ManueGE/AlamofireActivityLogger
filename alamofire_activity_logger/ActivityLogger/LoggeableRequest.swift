@@ -1,5 +1,5 @@
 //
-//  Request+ActivityLogger.swift
+//  LoggeableRequest.swift
 //  alamofire_activity_logger
 //
 //  Created by Manu on 30/5/16.
@@ -7,7 +7,8 @@
 //
 import Foundation
 import Alamofire
-import ObjectiveC
+
+private let appIsDebugMode = _isDebugAssertConfiguration()
 
 /**
  Log levels
@@ -53,12 +54,30 @@ public enum LogOption {
     }
 }
 
-public protocol LoggeableRequest: AnyObject {
-    func logResponse(level: LogLevel, options: [LogOption]) -> Self
-    var request: URLRequest? { get }
+/**
+ A struct that put together the relevant info from a Response
+ */
+public struct ResponseInfo {
+    public var httpResponse: HTTPURLResponse?
+    public var data: Data?
+    public var error: Error?
+    public var elapsedTime: TimeInterval
 }
 
-private let appIsDebugMode = _isDebugAssertConfiguration()
+/**
+ Make a Request conform this protocol to be able to log its request/response
+ */
+public protocol LoggeableRequest: AnyObject {
+    
+    /// The request sent
+    var request: URLRequest? { get }
+    
+    /**
+     Use this method to fetch the info needed to buld a `ResponseInfo` instance. Once the `ResponseInfo` has been build, you must call the `completion` parameter .
+     - parameter completion: The block that must be called when the asynchronous process has finished.
+     */
+    func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void)
+}
 
 public extension LoggeableRequest {
     
@@ -77,12 +96,18 @@ public extension LoggeableRequest {
         }
         
         Logger.logRequest(request: request, level: level, options: options)
-        return logResponse(level: level, options: options)
+        fetchResponseInfo { response in
+            Logger.logResponse(request: self.request, response: response, level: level, options: options)
+        }
+        
+        return self
     }
 }
 
+
 extension DataRequest: LoggeableRequest {
-    public func logResponse(level: LogLevel, options: [LogOption]) -> Self {
+    public func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void) {
+        
         responseData { (response) in
             
             var error: Error? = nil
@@ -90,21 +115,19 @@ extension DataRequest: LoggeableRequest {
                 error = e
             }
             
-            Logger.logResponse(request: response.request,
-                               httpResponse: response.response,
-                               data: response.data,
-                               error: error,
-                               elapsedTime:  response.timeline.requestDuration,
-                               level: level,
-                               options: options)
+            let logResponse = ResponseInfo(httpResponse: response.response,
+                                           data: response.data,
+                                           error: error,
+                                           elapsedTime:  response.timeline.requestDuration)
+            completion(logResponse)
         }
         
-        return self
     }
 }
 
 extension DownloadRequest: LoggeableRequest {
-    public func logResponse(level: LogLevel, options: [LogOption]) -> Self {
+    public func fetchResponseInfo(completion: @escaping (ResponseInfo) -> Void) {
+        
         responseData { (response) in
             
             var error: Error? = nil
@@ -117,15 +140,11 @@ extension DownloadRequest: LoggeableRequest {
                 error = value
             }
             
-            Logger.logResponse(request: response.request,
-                               httpResponse: response.response,
-                               data: data,
-                               error: error,
-                               elapsedTime:  response.timeline.requestDuration,
-                               level: level,
-                               options: options)
+            let logResponse = ResponseInfo(httpResponse: response.response,
+                                           data: data,
+                                           error: error,
+                                           elapsedTime:  response.timeline.requestDuration)
+            completion(logResponse)
         }
-        
-        return self
     }
 }

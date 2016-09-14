@@ -11,8 +11,10 @@ import Foundation
 private let NullString = "(null)"
 private let SeparatorString = "*******************************"
 
-
-public struct Logger {
+/**
+ A set of static methods which logs request and responses
+ */
+internal struct Logger {
     private static func string(from data: Data?, prettyPrint: Bool) -> String? {
         
         guard let data = data else {
@@ -49,13 +51,18 @@ public struct Logger {
         return response
     }
     
-    public static func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, elapsedTime: TimeInterval, level: LogLevel, options: [LogOption]) {
+    internal static func logResponse(request: URLRequest?, response: ResponseInfo, level: LogLevel, options: [LogOption]) {
         
         guard level != .None else {
             return
         }
         
-        if request == nil && httpResponse == nil {
+        let httpResponse = response.httpResponse
+        let data = response.data
+        let elapsedTime = response.elapsedTime
+        let error = response.error
+        
+        if request == nil && response.httpResponse == nil {
             return
         }
         
@@ -94,7 +101,7 @@ public struct Logger {
         }
     }
     
-    public static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption]) {
+    internal static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption]) {
         
         guard let request = request else {
             return
