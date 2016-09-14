@@ -31,33 +31,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         segmentedControl.removeAllSegments()
-        levels.enumerate().forEach { (index, element) in
-            segmentedControl.insertSegmentWithTitle(element.1,
-                atIndex: index,
+        levels.enumerated().forEach { (index, element) in
+            segmentedControl.insertSegment(withTitle: element.1,
+                at: index,
                 animated: false)
         }
         segmentedControl.selectedSegmentIndex = 1
     }
     
     // MARK: Actions
-    @IBAction func didPressSuccess(sender: AnyObject) {
+    @IBAction func didPressSuccess(_ sender: AnyObject) {
         performRequest(withURL: successURL)
     }
-    
-    @IBAction func didPressError(sender: AnyObject) {
+
+    @IBAction func didPressError(_ sender: AnyObject) {
         performRequest(withURL: failURL)
     }
     
     private func performRequest(withURL URL: String) {
         
         // Build options
-        var options: [LogOptions] = []
+        var options: [LogOption] = []
         
-        if prettyPrintSwitch.on {
+        if prettyPrintSwitch.isOn {
             options.append(.JSONPrettyPrint)
         }
         
-        if includeSeparatorSwift.on {
+        if includeSeparatorSwift.isOn {
             options.append(.IncludeSeparator)
         }
         
@@ -65,18 +65,21 @@ class ViewController: UIViewController {
         let level = levels[segmentedControl.selectedSegmentIndex].0
         
         self.setViewEnabled(false)
-        request(.GET, URL)
+        request(URL, method: .get)
             .validate()
-            .log(level, options: options)
+            .log(level: level, options: options)
             .responseData { (response) in
                 self.setViewEnabled(true)
         }
     }
     
     // MARK: Helpers
-    func setViewEnabled(enabled: Bool) {
-        views.forEach( { $0.enabled = enabled } )
+    func setViewEnabled(_ enabled: Bool) {
+        views.forEach { $0.isEnabled = enabled }
     }
+    
+    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {}
+        
 }
 
 

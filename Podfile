@@ -3,5 +3,5 @@
 
 target 'alamofire_activity_logger' do
 	use_frameworks!
-	pod 'Alamofire', '~> 3.4'
+	pod 'Alamofire', '~> 4'
 end
