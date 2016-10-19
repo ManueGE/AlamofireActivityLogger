@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireActivityLogger
 
 private struct URLConstants {
     static let successURL = "http://www.mocky.io/v2/574c43dc100000760eed69ca"
@@ -35,6 +36,5 @@ struct Helper {
             .responseData { (response) in
                 completion()
         }
-        
     }
 }

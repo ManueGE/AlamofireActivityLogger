@@ -12,17 +12,13 @@
 		321C5A0D1CFC18BB0012B3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A0B1CFC18BB0012B3AB /* Main.storyboard */; };
 		321C5A0F1CFC18BB0012B3AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A0E1CFC18BB0012B3AB /* Assets.xcassets */; };
 		321C5A121CFC18BB0012B3AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A101CFC18BB0012B3AB /* LaunchScreen.storyboard */; };
-		324596101DB7F4B300589CDF /* LoggeableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D7C41DB7F3E3006B7BFB /* LoggeableRequest.swift */; };
-		324596111DB7F4B300589CDF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D7C51DB7F3E3006B7BFB /* Logger.swift */; };
 		324596131DB7F51300589CDF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 324596121DB7F51300589CDF /* Default-568h@2x.png */; };
 		3266F7A81DB7F65800439950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7A71DB7F65800439950 /* AppDelegate.swift */; };
 		3266F7AA1DB7F65800439950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7A91DB7F65800439950 /* ViewController.swift */; };
 		3266F7AC1DB7F65800439950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3266F7AB1DB7F65800439950 /* Assets.xcassets */; };
 		3266F7AF1DB7F65800439950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3266F7AD1DB7F65800439950 /* Main.storyboard */; };
-		3266F7B51DB7F66400439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7B41DB7F66400439950 /* LoggerHelper.swift */; };
-		3266F7B61DB7FB8600439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7B41DB7F66400439950 /* LoggerHelper.swift */; };
-		3266F7B71DB7FC4700439950 /* LoggeableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D7C41DB7F3E3006B7BFB /* LoggeableRequest.swift */; };
-		3266F7B81DB7FC4700439950 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3220D7C51DB7F3E3006B7BFB /* Logger.swift */; };
+		3266F7BB1DB7FF7B00439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */; };
+		3266F7BC1DB7FF7B00439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */; };
 		634122C0708F39D6A324CC4D /* Pods_alamofire_activity_logger_macos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AA1F795C20419888FB0839 /* Pods_alamofire_activity_logger_macos.framework */; };
 		FA8AF6DEB0C9887ED13B6DCD /* Pods_alamofire_activity_logger_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5F992D73B6AD70238B2F84E /* Pods_alamofire_activity_logger_ios.framework */; };
 /* End PBXBuildFile section */
@@ -45,7 +41,7 @@
 		3266F7AB1DB7F65800439950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3266F7AE1DB7F65800439950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3266F7B01DB7F65800439950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3266F7B41DB7F66400439950 /* LoggerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerHelper.swift; sourceTree = "<group>"; };
+		3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerHelper.swift; sourceTree = "<group>"; };
 		35AA1F795C20419888FB0839 /* Pods_alamofire_activity_logger_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		838E498A53D70B0BDA87A460 /* Pods-alamofire_activity_logger-macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-macos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos.debug.xcconfig"; sourceTree = "<group>"; };
 		CF236E4FF7D504CAE3DF5A3E /* Pods-alamofire_activity_logger-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +74,7 @@
 			children = (
 				324596121DB7F51300589CDF /* Default-568h@2x.png */,
 				3220D7BC1DB7F3D3006B7BFB /* alamofire_activity_logger */,
+				3266F7B91DB7FF7B00439950 /* common */,
 				321C5A061CFC18BB0012B3AB /* ios */,
 				3266F7A61DB7F65800439950 /* macos */,
 				321C5A051CFC18BB0012B3AB /* Products */,
@@ -111,7 +108,6 @@
 		3220D7BC1DB7F3D3006B7BFB /* alamofire_activity_logger */ = {
 			isa = PBXGroup;
 			children = (
-				3266F7B41DB7F66400439950 /* LoggerHelper.swift */,
 				3220D7C31DB7F3E3006B7BFB /* ActivityLogger */,
 			);
 			path = alamofire_activity_logger;
@@ -136,6 +132,14 @@
 				3266F7B01DB7F65800439950 /* Info.plist */,
 			);
 			path = macos;
+			sourceTree = "<group>";
+		};
+		3266F7B91DB7FF7B00439950 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		4C9617FFA8D4C68B099FE1BB /* Frameworks */ = {
@@ -362,11 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3266F7B51DB7F66400439950 /* LoggerHelper.swift in Sources */,
+				3266F7BB1DB7FF7B00439950 /* LoggerHelper.swift in Sources */,
 				321C5A0A1CFC18BB0012B3AB /* ViewController.swift in Sources */,
 				321C5A081CFC18BB0012B3AB /* AppDelegate.swift in Sources */,
-				324596101DB7F4B300589CDF /* LoggeableRequest.swift in Sources */,
-				324596111DB7F4B300589CDF /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,11 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3266F7B81DB7FC4700439950 /* Logger.swift in Sources */,
-				3266F7B71DB7FC4700439950 /* LoggeableRequest.swift in Sources */,
 				3266F7AA1DB7F65800439950 /* ViewController.swift in Sources */,
+				3266F7BC1DB7FF7B00439950 /* LoggerHelper.swift in Sources */,
 				3266F7A81DB7F65800439950 /* AppDelegate.swift in Sources */,
-				3266F7B61DB7FB8600439950 /* LoggerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

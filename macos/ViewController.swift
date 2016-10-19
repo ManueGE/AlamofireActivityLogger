@@ -8,6 +8,7 @@
 
 import Cocoa
 import Alamofire
+import AlamofireActivityLogger
 
 class ViewController: NSViewController {
 
