@@ -17,4 +17,8 @@ abstract_target 'alamofire_activity_logger' do
         platform :watchos, '2.0'
     end
     
+    target 'tvos' do
+        platform :tvos, '9.0'
+    end
+    
 end
