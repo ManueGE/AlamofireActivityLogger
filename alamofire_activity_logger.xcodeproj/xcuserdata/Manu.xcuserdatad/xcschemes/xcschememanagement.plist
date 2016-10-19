@@ -12,7 +12,17 @@
 		<key>macos.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
+		</dict>
+		<key>watchos (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>watchos.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +38,16 @@
 			<true/>
 		</dict>
 		<key>3266F7A41DB7F65800439950</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3266F7BE1DB8000900439950</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3266F7E81DB8063100439950</key>
 		<dict>
 			<key>primary</key>
 			<true/>

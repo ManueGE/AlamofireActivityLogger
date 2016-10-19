@@ -13,4 +13,8 @@ abstract_target 'alamofire_activity_logger' do
         platform :osx, '10.11'
     end
     
+    target 'watchos Extension' do
+        platform :watchos, '2.0'
+    end
+    
 end
