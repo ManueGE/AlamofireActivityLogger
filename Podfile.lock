@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.0.0)
-  - AlamofireActivityLogger (2.0.0):
+  - AlamofireActivityLogger (2.1.0):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
@@ -13,8 +13,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
-  AlamofireActivityLogger: 5c7e5dedb75de8b049217dc5c7f2b5529d80ff33
+  AlamofireActivityLogger: cf3da15078a8b6d82d64d87c547900bf9e45b14e
 
-PODFILE CHECKSUM: 6e8e1273159aeb61c37613718e85bd46336932df
+PODFILE CHECKSUM: fd643fe9aac644d3a7b5e223324018389d29e857
 
 COCOAPODS: 1.1.0.rc.3

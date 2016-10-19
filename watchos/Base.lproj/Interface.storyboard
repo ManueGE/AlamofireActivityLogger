@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OCY-i6-r4G">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+    </dependencies>
+    <scenes>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="watchos" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="Qui-kg-pju">
+            <objects>
+                <controller id="OCY-i6-r4G" customClass="InterfaceController" customModule="watchos" customModuleProvider="target">
+                    <items>
+                        <picker height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="KEu-8J-4tG">
+                            <connections>
+                                <action selector="didChangeLevelPicker:" destination="OCY-i6-r4G" id="C3e-Re-Gf2"/>
+                            </connections>
+                        </picker>
+                        <switch width="1" alignment="left" value="YES" title="Pretty" id="ZBh-L8-a1b">
+                            <connections>
+                                <action selector="didChangePrettySwitch:" destination="OCY-i6-r4G" id="qjP-ON-qaO"/>
+                            </connections>
+                        </switch>
+                        <switch width="1" alignment="left" value="YES" title="Separator" id="guu-In-6ip">
+                            <connections>
+                                <action selector="didChangeSeparatorSwitch:" destination="OCY-i6-r4G" id="wIc-8o-M9b"/>
+                            </connections>
+                        </switch>
+                        <button width="1" alignment="left" title="Success " id="5wr-pK-EhF">
+                            <color key="titleColor" red="0.0" green="0.65497504340000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didPressSuccess" destination="OCY-i6-r4G" id="nzG-mz-a8w"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Fail" id="ca1-qY-dxj">
+                            <color key="titleColor" red="0.93725490570000003" green="0.34901961679999999" blue="0.1921568662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="didPressFail" destination="OCY-i6-r4G" id="0A2-ZF-JdA"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="levelPicker" destination="KEu-8J-4tG" id="1Sr-fT-CdU"/>
+                        <outlet property="prettyPrintSwitch" destination="ZBh-L8-a1b" id="PNz-nZ-F6w"/>
+                        <outlet property="separatorSwitch" destination="guu-In-6ip" id="57v-3K-iKn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="206"/>
+        </scene>
+    </scenes>
+</document>
