@@ -2,6 +2,14 @@
 
 A response serializer for [**Alamofire**](https://github.com/Alamofire/Alamofire) which logs both request and response. It provides 4 log levels and a few options to configure your logs.
 
+**AlamofireActivityLogger** is available for: 
+
+- iOS (from 9.0)
+- macOS (from 10.11)
+- watchOS (from 2.0)
+- tvOS (from 9.0)
+
+
 > **NOTE**: This version is written for **Alamofire 4.x** and **Swift 3**. To support **Swift 2** and **Alamofire 3.x** use the [version 1.0.1](https://github.com/ManueGE/AlamofireActivityLogger/tree/1.0.1/).
 
 ## Installing AlamofireActivityLogger
