@@ -13,7 +13,9 @@ Pod::Spec.new do |spec|
   spec.author    = "Manuel García-Estañ"
   spec.social_media_url   = "http://twitter.com/ManueGE"
 
-  spec.platform     = :ios, "8.0"
+  spec.ios.deployment_target = '9.0'
+  spec.osx.deployment_target = '10.11'
+
   spec.source       = { :git => "https://github.com/ManueGE/AlamofireActivityLogger.git", :tag => "#{spec.version}" }
 
   spec.requires_arc = true

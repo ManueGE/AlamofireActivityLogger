@@ -8,18 +8,9 @@
 
 import UIKit
 import Alamofire
-
-let successURL = "http://www.mocky.io/v2/574c43dc100000760eed69ca"
-let failURL = "http://www.mocky.io/v2/574c440d100000860eed69cb"
+import AlamofireActivityLogger
 
 class ViewController: UIViewController {
-    
-    let levels: [(LogLevel, String)] = [
-        (.none, "None"),
-        (.all, "All"),
-        (.info, "Info"),
-        (.error, "Error")
-    ]
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var prettyPrintSwitch: UISwitch!
@@ -31,24 +22,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         segmentedControl.removeAllSegments()
-        levels.enumerated().forEach { (index, element) in
+        
+        Constants.levelsAndNames.enumerated().forEach { (index, element) in
             segmentedControl.insertSegment(withTitle: element.1,
                 at: index,
                 animated: false)
         }
+        
         segmentedControl.selectedSegmentIndex = 1
     }
     
     // MARK: Actions
     @IBAction func didPressSuccess(_ sender: AnyObject) {
-        performRequest(withURL: successURL)
+        performRequest(success: true)
     }
 
     @IBAction func didPressError(_ sender: AnyObject) {
-        performRequest(withURL: failURL)
+        performRequest(success: false)
     }
     
-    private func performRequest(withURL URL: String) {
+    private func performRequest(success: Bool) {
         
         // Build options
         var options: [LogOption] = []
@@ -62,14 +55,13 @@ class ViewController: UIViewController {
         }
         
         // Level
-        let level = levels[segmentedControl.selectedSegmentIndex].0
+        let level = Constants.levelsAndNames[segmentedControl.selectedSegmentIndex].0
         
-        self.setViewEnabled(false)
-        request(URL, method: .get)
-            .validate()
-            .log(level: level, options: options)
-            .responseData { (response) in
-                self.setViewEnabled(true)
+        Helper.performRequest(success: success,
+                              level: level,
+                              options: options) { 
+                                
+                                self.setViewEnabled(true)
         }
     }
     
@@ -78,8 +70,6 @@ class ViewController: UIViewController {
         views.forEach { $0.isEnabled = enabled }
     }
     
-    private func logResponse(request: URLRequest?, httpResponse: HTTPURLResponse?, data: Data?, error: Error?, level: LogLevel, options: [LogOption]) {}
-        
 }
 
 

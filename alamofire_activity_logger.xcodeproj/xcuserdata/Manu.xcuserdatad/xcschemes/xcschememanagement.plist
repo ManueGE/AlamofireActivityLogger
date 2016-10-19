@@ -4,15 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>alamofire_activity_logger.xcscheme</key>
+		<key>ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>macos.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>321C5A031CFC18BB0012B3AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3220D7BA1DB7F3D2006B7BFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3266F7A41DB7F65800439950</key>
 		<dict>
 			<key>primary</key>
 			<true/>
