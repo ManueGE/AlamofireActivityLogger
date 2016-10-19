@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		296005F94EEE2C6DB65D15BF /* Pods_alamofire_activity_logger_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD01407B9D615FA4D69AD431 /* Pods_alamofire_activity_logger_ios.framework */; };
+		1727FBF67B67953E042641C6 /* Pods_alamofire_activity_logger_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98B8CAE22756986A46C3F1B6 /* Pods_alamofire_activity_logger_tvos.framework */; };
 		321C5A081CFC18BB0012B3AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C5A071CFC18BB0012B3AB /* AppDelegate.swift */; };
 		321C5A0A1CFC18BB0012B3AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C5A091CFC18BB0012B3AB /* ViewController.swift */; };
 		321C5A0D1CFC18BB0012B3AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 321C5A0B1CFC18BB0012B3AB /* Main.storyboard */; };
@@ -30,12 +30,13 @@
 		3266F8071DB8063100439950 /* watchos.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3266F7E91DB8063100439950 /* watchos.app */; };
 		3266F80F1DB8067F00439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */; };
 		3266F8171DB8094000439950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F8161DB8094000439950 /* AppDelegate.swift */; };
-		3266F8191DB8094000439950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F8181DB8094000439950 /* ViewController.swift */; };
+		3266F8191DB8094000439950 /* TVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F8181DB8094000439950 /* TVViewController.swift */; };
 		3266F81C1DB8094000439950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3266F81A1DB8094000439950 /* Main.storyboard */; };
 		3266F81E1DB8094100439950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3266F81D1DB8094100439950 /* Assets.xcassets */; };
-		9124FAF21AE703E9A43574AD /* Pods_alamofire_activity_logger_tvos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73AB0A4FACFA2BCF767CB51 /* Pods_alamofire_activity_logger_tvos.framework */; };
-		AB6FB1794B88477D53091188 /* Pods_alamofire_activity_logger_watchos_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F280D3BEB79ECDC360A7438 /* Pods_alamofire_activity_logger_watchos_Extension.framework */; };
-		BBC83C784A03F5AAC07C6854 /* Pods_alamofire_activity_logger_macos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D444A418995957978989B9 /* Pods_alamofire_activity_logger_macos.framework */; };
+		3266F8231DB809AA00439950 /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3266F7BA1DB7FF7B00439950 /* LoggerHelper.swift */; };
+		DCFED68EDEDA981D9A5F7E8D /* Pods_alamofire_activity_logger_watchos_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107AF166F901A9F45E149EA2 /* Pods_alamofire_activity_logger_watchos_Extension.framework */; };
+		F6C2EA0811607085C0CE5EAD /* Pods_alamofire_activity_logger_macos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B72E5569404D207E2FF281 /* Pods_alamofire_activity_logger_macos.framework */; };
+		FAFB9515E54832D4EF1127E4 /* Pods_alamofire_activity_logger_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83DF090A123E0EC4E0312BF /* Pods_alamofire_activity_logger_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,12 +82,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06D444A418995957978989B9 /* Pods_alamofire_activity_logger_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		076246380F8FFFEC7A0D6837 /* Pods-alamofire_activity_logger-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-tvos.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos.release.xcconfig"; sourceTree = "<group>"; };
-		0D4D2AE68BAE7A621E87E04F /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-watchos Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension.release.xcconfig"; sourceTree = "<group>"; };
-		1DAD118B79CA3EC841EF87BF /* Pods-alamofire_activity_logger-macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-macos.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos.release.xcconfig"; sourceTree = "<group>"; };
-		1E8DE15D3B6EE7BF50D19520 /* Pods-alamofire_activity_logger-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios.release.xcconfig"; sourceTree = "<group>"; };
-		3091C2552798358F40C222CB /* Pods-alamofire_activity_logger-macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-macos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos.debug.xcconfig"; sourceTree = "<group>"; };
+		107AF166F901A9F45E149EA2 /* Pods_alamofire_activity_logger_watchos_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_watchos_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		112D5E75CD6F0DF1C21500ED /* Pods-alamofire_activity_logger-tvos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-tvos.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos.release.xcconfig"; sourceTree = "<group>"; };
+		1E108277DBABBE29D9830D62 /* Pods-alamofire_activity_logger-macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-macos.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos.release.xcconfig"; sourceTree = "<group>"; };
+		250FDE90CBCAD21F9E2D7C79 /* Pods-alamofire_activity_logger-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios.release.xcconfig"; sourceTree = "<group>"; };
+		2893867AE41353AC36C41113 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		321C5A041CFC18BB0012B3AB /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		321C5A071CFC18BB0012B3AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		321C5A091CFC18BB0012B3AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,16 +117,17 @@
 		3266F8041DB8063100439950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3266F8141DB8094000439950 /* tvos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3266F8161DB8094000439950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3266F8181DB8094000439950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3266F8181DB8094000439950 /* TVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVViewController.swift; sourceTree = "<group>"; };
 		3266F81B1DB8094000439950 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3266F81D1DB8094100439950 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3266F81F1DB8094100439950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3624DFB63AF950AE40A25AE0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		4450AABA954BF7449FFDC288 /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-tvos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos.debug.xcconfig"; sourceTree = "<group>"; };
-		4F280D3BEB79ECDC360A7438 /* Pods_alamofire_activity_logger_watchos_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_watchos_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		73E0DE5391C9545D6607B806 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		BD01407B9D615FA4D69AD431 /* Pods_alamofire_activity_logger_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C73AB0A4FACFA2BCF767CB51 /* Pods_alamofire_activity_logger_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D2873D0A8A9C8E20159AB0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		8721B0F84A15E24B7568E3FB /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-tvos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos.debug.xcconfig"; sourceTree = "<group>"; };
+		98B8CAE22756986A46C3F1B6 /* Pods_alamofire_activity_logger_tvos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_tvos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8635FB0650DAC2EA67ABE0 /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-watchos Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension.release.xcconfig"; sourceTree = "<group>"; };
+		C7B72E5569404D207E2FF281 /* Pods_alamofire_activity_logger_macos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C83DF090A123E0EC4E0312BF /* Pods_alamofire_activity_logger_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alamofire_activity_logger_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F389739BA3908F8BA0444927 /* Pods-alamofire_activity_logger-macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alamofire_activity_logger-macos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				296005F94EEE2C6DB65D15BF /* Pods_alamofire_activity_logger_ios.framework in Frameworks */,
+				FAFB9515E54832D4EF1127E4 /* Pods_alamofire_activity_logger_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBC83C784A03F5AAC07C6854 /* Pods_alamofire_activity_logger_macos.framework in Frameworks */,
+				F6C2EA0811607085C0CE5EAD /* Pods_alamofire_activity_logger_macos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB6FB1794B88477D53091188 /* Pods_alamofire_activity_logger_watchos_Extension.framework in Frameworks */,
+				DCFED68EDEDA981D9A5F7E8D /* Pods_alamofire_activity_logger_watchos_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9124FAF21AE703E9A43574AD /* Pods_alamofire_activity_logger_tvos.framework in Frameworks */,
+				1727FBF67B67953E042641C6 /* Pods_alamofire_activity_logger_tvos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,21 +173,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		317B45F2BD305953F40D3751 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				73E0DE5391C9545D6607B806 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */,
-				1E8DE15D3B6EE7BF50D19520 /* Pods-alamofire_activity_logger-ios.release.xcconfig */,
-				3091C2552798358F40C222CB /* Pods-alamofire_activity_logger-macos.debug.xcconfig */,
-				1DAD118B79CA3EC841EF87BF /* Pods-alamofire_activity_logger-macos.release.xcconfig */,
-				3624DFB63AF950AE40A25AE0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */,
-				0D4D2AE68BAE7A621E87E04F /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */,
-				4450AABA954BF7449FFDC288 /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */,
-				076246380F8FFFEC7A0D6837 /* Pods-alamofire_activity_logger-tvos.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		321C59FB1CFC18BB0012B3AB = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +185,8 @@
 				3266F7F91DB8063100439950 /* watchos Extension */,
 				3266F8151DB8094000439950 /* tvos */,
 				321C5A051CFC18BB0012B3AB /* Products */,
-				317B45F2BD305953F40D3751 /* Pods */,
-				40CF8E90AE73168FC6CA17FC /* Frameworks */,
+				61074990B4C687CB78A267BA /* Pods */,
+				A4BA5D4B705CB8396A402E93 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -301,7 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				3266F8161DB8094000439950 /* AppDelegate.swift */,
-				3266F8181DB8094000439950 /* ViewController.swift */,
+				3266F8181DB8094000439950 /* TVViewController.swift */,
 				3266F81A1DB8094000439950 /* Main.storyboard */,
 				3266F81D1DB8094100439950 /* Assets.xcassets */,
 				3266F81F1DB8094100439950 /* Info.plist */,
@@ -309,13 +295,28 @@
 			path = tvos;
 			sourceTree = "<group>";
 		};
-		40CF8E90AE73168FC6CA17FC /* Frameworks */ = {
+		61074990B4C687CB78A267BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD01407B9D615FA4D69AD431 /* Pods_alamofire_activity_logger_ios.framework */,
-				06D444A418995957978989B9 /* Pods_alamofire_activity_logger_macos.framework */,
-				4F280D3BEB79ECDC360A7438 /* Pods_alamofire_activity_logger_watchos_Extension.framework */,
-				C73AB0A4FACFA2BCF767CB51 /* Pods_alamofire_activity_logger_tvos.framework */,
+				2893867AE41353AC36C41113 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */,
+				250FDE90CBCAD21F9E2D7C79 /* Pods-alamofire_activity_logger-ios.release.xcconfig */,
+				F389739BA3908F8BA0444927 /* Pods-alamofire_activity_logger-macos.debug.xcconfig */,
+				1E108277DBABBE29D9830D62 /* Pods-alamofire_activity_logger-macos.release.xcconfig */,
+				8721B0F84A15E24B7568E3FB /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */,
+				112D5E75CD6F0DF1C21500ED /* Pods-alamofire_activity_logger-tvos.release.xcconfig */,
+				72D2873D0A8A9C8E20159AB0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */,
+				AA8635FB0650DAC2EA67ABE0 /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4BA5D4B705CB8396A402E93 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C83DF090A123E0EC4E0312BF /* Pods_alamofire_activity_logger_ios.framework */,
+				C7B72E5569404D207E2FF281 /* Pods_alamofire_activity_logger_macos.framework */,
+				98B8CAE22756986A46C3F1B6 /* Pods_alamofire_activity_logger_tvos.framework */,
+				107AF166F901A9F45E149EA2 /* Pods_alamofire_activity_logger_watchos_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,13 +328,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 321C5A161CFC18BB0012B3AB /* Build configuration list for PBXNativeTarget "ios" */;
 			buildPhases = (
-				1181DBBCC716C6CBFB547A90 /* [CP] Check Pods Manifest.lock */,
+				F3949A9C9CDFB7CE2C038105 /* [CP] Check Pods Manifest.lock */,
 				321C5A001CFC18BB0012B3AB /* Sources */,
 				321C5A011CFC18BB0012B3AB /* Frameworks */,
 				321C5A021CFC18BB0012B3AB /* Resources */,
 				3266F7E51DB8000A00439950 /* Embed Watch Content */,
-				C30EB59C9AABD5335E27255B /* [CP] Embed Pods Frameworks */,
-				AD85559608BCE06C48FDC0AA /* [CP] Copy Pods Resources */,
+				0B4CE5BF21DCC8589B707F82 /* [CP] Embed Pods Frameworks */,
+				D945152F353802E8EC4E14D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,12 +350,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3266F7B11DB7F65800439950 /* Build configuration list for PBXNativeTarget "macos" */;
 			buildPhases = (
-				E75D0F45C5DA15FBE4030FE3 /* [CP] Check Pods Manifest.lock */,
+				DEF34AEFDA5EAEE9D65A5B8B /* [CP] Check Pods Manifest.lock */,
 				3266F7A11DB7F65800439950 /* Sources */,
 				3266F7A21DB7F65800439950 /* Frameworks */,
 				3266F7A31DB7F65800439950 /* Resources */,
-				A98C565497494020D765F0C4 /* [CP] Embed Pods Frameworks */,
-				355BB690B8B7453735CC70D6 /* [CP] Copy Pods Resources */,
+				3C7EA4A84813E650F2EC415D /* [CP] Embed Pods Frameworks */,
+				E5CD6A4CD439B18B221C7BD1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,12 +388,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3266F8081DB8063100439950 /* Build configuration list for PBXNativeTarget "watchos Extension" */;
 			buildPhases = (
-				D60A1E60E9B58FF555E494E1 /* [CP] Check Pods Manifest.lock */,
+				7C915948FA2A8516CF116157 /* [CP] Check Pods Manifest.lock */,
 				3266F7F11DB8063100439950 /* Sources */,
 				3266F7F21DB8063100439950 /* Frameworks */,
 				3266F7F31DB8063100439950 /* Resources */,
-				B2E9706FF5AD6FC4FD901518 /* [CP] Embed Pods Frameworks */,
-				416917194F810727002C24FD /* [CP] Copy Pods Resources */,
+				4BA3C7D2040EA464645DA175 /* [CP] Embed Pods Frameworks */,
+				7B621B3BE37639B5DCBB3A1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -407,12 +408,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3266F8221DB8094100439950 /* Build configuration list for PBXNativeTarget "tvos" */;
 			buildPhases = (
-				329AFFF45BEE43A87AA56CCF /* [CP] Check Pods Manifest.lock */,
+				1C73505D887B670B8A231A8C /* [CP] Check Pods Manifest.lock */,
 				3266F8101DB8094000439950 /* Sources */,
 				3266F8111DB8094000439950 /* Frameworks */,
 				3266F8121DB8094000439950 /* Resources */,
-				F551BCA476822673C47D8822 /* [CP] Embed Pods Frameworks */,
-				66E2BF373E4418A85320ABE2 /* [CP] Copy Pods Resources */,
+				2C10CE28F1A3741A94196E53 /* [CP] Embed Pods Frameworks */,
+				059A1A2DC98DA3B7DBCBC7D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -531,67 +532,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1181DBBCC716C6CBFB547A90 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		329AFFF45BEE43A87AA56CCF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		355BB690B8B7453735CC70D6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		416917194F810727002C24FD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66E2BF373E4418A85320ABE2 /* [CP] Copy Pods Resources */ = {
+		059A1A2DC98DA3B7DBCBC7D0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -606,52 +547,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A98C565497494020D765F0C4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AD85559608BCE06C48FDC0AA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B2E9706FF5AD6FC4FD901518 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C30EB59C9AABD5335E27255B /* [CP] Embed Pods Frameworks */ = {
+		0B4CE5BF21DCC8589B707F82 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -666,7 +562,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D60A1E60E9B58FF555E494E1 /* [CP] Check Pods Manifest.lock */ = {
+		1C73505D887B670B8A231A8C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -681,22 +577,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E75D0F45C5DA15FBE4030FE3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F551BCA476822673C47D8822 /* [CP] Embed Pods Frameworks */ = {
+		2C10CE28F1A3741A94196E53 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -709,6 +590,126 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-tvos/Pods-alamofire_activity_logger-tvos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C7EA4A84813E650F2EC415D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA3C7D2040EA464645DA175 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B621B3BE37639B5DCBB3A1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-watchos Extension/Pods-alamofire_activity_logger-watchos Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C915948FA2A8516CF116157 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D945152F353802E8EC4E14D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-ios/Pods-alamofire_activity_logger-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEF34AEFDA5EAEE9D65A5B8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E5CD6A4CD439B18B221C7BD1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-alamofire_activity_logger-macos/Pods-alamofire_activity_logger-macos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3949A9C9CDFB7CE2C038105 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -749,8 +750,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3266F8191DB8094000439950 /* ViewController.swift in Sources */,
+				3266F8191DB8094000439950 /* TVViewController.swift in Sources */,
 				3266F8171DB8094000439950 /* AppDelegate.swift in Sources */,
+				3266F8231DB809AA00439950 /* LoggerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,7 +905,7 @@
 		};
 		321C5A171CFC18BB0012B3AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73E0DE5391C9545D6607B806 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */;
+			baseConfigurationReference = 2893867AE41353AC36C41113 /* Pods-alamofire_activity_logger-ios.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -918,7 +920,7 @@
 		};
 		321C5A181CFC18BB0012B3AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E8DE15D3B6EE7BF50D19520 /* Pods-alamofire_activity_logger-ios.release.xcconfig */;
+			baseConfigurationReference = 250FDE90CBCAD21F9E2D7C79 /* Pods-alamofire_activity_logger-ios.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -933,7 +935,7 @@
 		};
 		3266F7B21DB7F65800439950 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3091C2552798358F40C222CB /* Pods-alamofire_activity_logger-macos.debug.xcconfig */;
+			baseConfigurationReference = F389739BA3908F8BA0444927 /* Pods-alamofire_activity_logger-macos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -954,7 +956,7 @@
 		};
 		3266F7B31DB7F65800439950 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DAD118B79CA3EC841EF87BF /* Pods-alamofire_activity_logger-macos.release.xcconfig */;
+			baseConfigurationReference = 1E108277DBABBE29D9830D62 /* Pods-alamofire_activity_logger-macos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -974,7 +976,7 @@
 		};
 		3266F8091DB8063100439950 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3624DFB63AF950AE40A25AE0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */;
+			baseConfigurationReference = 72D2873D0A8A9C8E20159AB0 /* Pods-alamofire_activity_logger-watchos Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -995,7 +997,7 @@
 		};
 		3266F80A1DB8063100439950 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D4D2AE68BAE7A621E87E04F /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */;
+			baseConfigurationReference = AA8635FB0650DAC2EA67ABE0 /* Pods-alamofire_activity_logger-watchos Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1056,7 +1058,7 @@
 		};
 		3266F8201DB8094100439950 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4450AABA954BF7449FFDC288 /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */;
+			baseConfigurationReference = 8721B0F84A15E24B7568E3FB /* Pods-alamofire_activity_logger-tvos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1077,7 +1079,7 @@
 		};
 		3266F8211DB8094100439950 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 076246380F8FFFEC7A0D6837 /* Pods-alamofire_activity_logger-tvos.release.xcconfig */;
+			baseConfigurationReference = 112D5E75CD6F0DF1C21500ED /* Pods-alamofire_activity_logger-tvos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
