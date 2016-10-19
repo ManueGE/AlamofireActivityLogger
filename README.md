@@ -8,7 +8,7 @@ A response serializer for [**Alamofire**](https://github.com/Alamofire/Alamofire
 
 ##### Using CocoaPods
 
-Add one of more of the following to your `Podfile`:
+Add the following to your `Podfile`:
 
 ````
 pod 'AlamofireActivityLogger'
@@ -40,7 +40,7 @@ Additionally, you can provide the log level and some options:
 ````
 request(.get, URL)
     .validate()
-    .log(level, options: options)
+    .log(level: level, options: options)
 }
 ````
 
@@ -84,4 +84,4 @@ At the moment, **AlamofireActivityLogger** has support for `DataRequest` and `Do
 
 ## License
 
-Raccoon is available under the [MIT license](LICENSE.md).
+AlamofireActivityLogger is available under the [MIT license](LICENSE.md).
