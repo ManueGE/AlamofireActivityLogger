@@ -9,9 +9,6 @@
 import UIKit
 import Alamofire
 
-let successURL = "http://www.mocky.io/v2/574c43dc100000760eed69ca"
-let failURL = "http://www.mocky.io/v2/574c440d100000860eed69cb"
-
 class ViewController: UIViewController {
     
     let levels: [(LogLevel, String)] = [
@@ -41,11 +38,11 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func didPressSuccess(_ sender: AnyObject) {
-        performRequest(withURL: successURL)
+        performRequest(withURL: URLConstants.successURL)
     }
 
     @IBAction func didPressError(_ sender: AnyObject) {
-        performRequest(withURL: failURL)
+        performRequest(withURL: URLConstants.failURL)
     }
     
     private func performRequest(withURL URL: String) {

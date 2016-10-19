@@ -1,7 +1,10 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
-target 'alamofire_activity_logger' do
+abstract_target 'alamofire_activity_logger' do
 	use_frameworks!
-	pod 'Alamofire', '~> 4'
+	pod 'Alamofire', '~> 4.0'
+    
+    target 'ios'
+    
 end
