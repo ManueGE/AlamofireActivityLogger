@@ -1,4 +1,7 @@
 # Change Log
+### 2.1.0 (19 Ocober 2016)
+- Add support for macOS, watchOS and tvOS.
+
 ### 2.0.0 (14 September 2016)
 - Swift 3 and Alamofire 4 support
 
