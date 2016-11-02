@@ -37,7 +37,7 @@ If you don’t have CocoaPods installed or integrated into your project, you can
 To log a request you just have to write:
 
 ````
-request(.get, URL)
+request(.get, url)
     .validate()
     .log()
 }
@@ -46,9 +46,9 @@ request(.get, URL)
 Additionally, you can provide the log level and some options:
 
 ````
-request(.get, URL)
+request(.get, url)
     .validate()
-    .log(level: level, options: options)
+    .log(level: level, options: options, printer: myPrinter)
 }
 ````
 
@@ -79,6 +79,43 @@ Are instances of the enum `LogOption`. The available values are:
 * **`includeSeparator`**: Include a separator string at the begining and end of each section
 
  The default value is **`[.onlyDebug, .jsonPrettyPrint, .includeSeparator]`**.
+ 
+### Custom printers
+
+If you use a third party logger, you can integrate it with AlamofireActivityLogger. To do it, you must provide a `Printer` object. 
+
+`Printer` is a protocol which just requires one method: 
+
+````swift
+func print(_ string: String, phase: Phase)
+````
+
+As an example, let’s suppose you have [SwiftyBeaver](https://github.com/SwiftyBeaver/SwiftyBeaver) integrated in your app. We can create a `SwiftyBeaverPrinter` struct like this: 
+
+````swift
+struct SwiftyBeaverPrinter: Printer {
+    func print(_ string: String, phase: Phase) {
+        switch phase {
+        case let .response(success) where success == true:
+            log.error(string)
+        default:
+            log.info(string)
+        }
+    }
+}
+````
+
+And use it this way:
+
+````swift
+request(.get, url)
+    .validate()
+    .log(printer: SwiftyBeaverPrinter())
+}
+````
+
+By default, a instance of `NativePrinter` is used. It just make use of the native `Swift.print` to print the info.
+
  
 ## Supported requests
 
