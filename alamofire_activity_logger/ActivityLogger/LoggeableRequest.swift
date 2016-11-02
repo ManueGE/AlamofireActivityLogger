@@ -32,6 +32,9 @@ public enum LogLevel {
     case error
 }
 
+public typealias Printer = (String) -> Void
+public let defaultPrinter: Printer = { print($0) }
+
 /**
  Login options
  
@@ -84,7 +87,7 @@ public extension LoggeableRequest {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions) -> Self {
+    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions, printer: @escaping Printer = defaultPrinter) -> Self {
         
         guard level != .none else {
             return self
@@ -95,9 +98,9 @@ public extension LoggeableRequest {
             return self
         }
         
-        Logger.logRequest(request: request, level: level, options: options)
+        Logger.logRequest(request: request, level: level, options: options, printer: printer)
         fetchResponseInfo { response in
-            Logger.logResponse(request: self.request, response: response, level: level, options: options)
+            Logger.logResponse(request: self.request, response: response, level: level, options: options, printer: printer)
         }
         
         return self

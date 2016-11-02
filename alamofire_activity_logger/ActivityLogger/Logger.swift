@@ -52,7 +52,7 @@ internal struct Logger {
         return response
     }
     
-    internal static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption]) {
+    internal static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption], printer: Printer) {
         
         guard let request = request else {
             return
@@ -70,17 +70,17 @@ internal struct Logger {
         case .all:
             let prettyPrint = options.contains(.jsonPrettyPrint)
             let body = string(from: request.httpBody, prettyPrint: prettyPrint) ?? nullString
-            print("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)")
+            printer("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)")
             
         case .info:
-            print("\(openSeparator)[Request] \(method) '\(url)'\(closeSeparator)")
+            printer("\(openSeparator)[Request] \(method) '\(url)'\(closeSeparator)")
             
         default:
             break
         }
     }
     
-    internal static func logResponse(request: URLRequest?, response: ResponseInfo, level: LogLevel, options: [LogOption]) {
+    internal static func logResponse(request: URLRequest?, response: ResponseInfo, level: LogLevel, options: [LogOption], printer: Printer) {
         
         guard level != .none else {
             return
@@ -118,12 +118,12 @@ internal struct Logger {
         let responseTitle = error == nil ? "Response" : "Response Error"
         switch level {
         case .all:
-            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
+            printer("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
         case .info:
-            print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString)\(closeSeparator)")
+            printer("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString)\(closeSeparator)")
         case .error:
             if let error = error {
-                print("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTimeString) s: \(error)\(closeSeparator)")
+                printer("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTimeString) s: \(error)\(closeSeparator)")
             }
         default:
             break
