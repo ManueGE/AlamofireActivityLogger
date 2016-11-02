@@ -96,6 +96,7 @@
 		321C5A131CFC18BB0012B3AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3220D7C41DB7F3E3006B7BFB /* LoggeableRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggeableRequest.swift; sourceTree = "<group>"; };
 		3220D7C51DB7F3E3006B7BFB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		323FD08C1DCA762100406E36 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		324596121DB7F51300589CDF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		3266F7A51DB7F65800439950 /* macos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3266F7A71DB7F65800439950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		3220D7C31DB7F3E3006B7BFB /* ActivityLogger */ = {
 			isa = PBXGroup;
 			children = (
+				323FD08C1DCA762100406E36 /* Tools.swift */,
 				3220D7C41DB7F3E3006B7BFB /* LoggeableRequest.swift */,
 				3220D7C51DB7F3E3006B7BFB /* Logger.swift */,
 			);
