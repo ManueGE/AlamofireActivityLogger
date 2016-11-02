@@ -1,5 +1,8 @@
 # Change Log
-### 2.1.0 (19 Ocober 2016)
+### 2.2.0 (2 November 2016)
+- Add support for custom printers to allow integration with third party loggers. 
+
+### 2.1.0 (19 October 2016)
 - Add support for macOS, watchOS and tvOS.
 
 ### 2.0.0 (14 September 2016)
