@@ -96,7 +96,7 @@ As an example, let’s suppose you have [SwiftyBeaver](https://github.com/Swifty
 struct SwiftyBeaverPrinter: Printer {
     func print(_ string: String, phase: Phase) {
         switch phase {
-        case let .response(success) where success == true:
+        case let .response(success) where success == false:
             log.error(string)
         default:
             log.info(string)
