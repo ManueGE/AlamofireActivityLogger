@@ -8,55 +8,6 @@
 import Foundation
 import Alamofire
 
-private let appIsDebugMode = _isDebugAssertConfiguration()
-
-/**
- Log levels
- 
- `none`
- Do not log requests or responses.
- 
- `all`
- Logs HTTP method, URL, header fields, & request body for requests, and status code, URL, header fields, response string, & elapsed time for responses.
- 
- `info`
- Logs HTTP method & URL for requests, and status code, URL, & elapsed time for responses.
- 
- `error`
- Logs HTTP method & URL for requests, and status code, URL, & elapsed time for responses, but only for failed requests.
- */
-public enum LogLevel {
-    case none
-    case all
-    case info
-    case error
-}
-
-public typealias Printer = (String) -> Void
-public let defaultPrinter: Printer = { print($0) }
-
-/**
- Login options
- 
- `onlyDebug`
- Only logs if the app is in Debug mode
- 
- `jsonPrettyPrint`
- Prints the JSON body on request and response
- 
- `includeSeparator`
- Include a separator string at the begining and end of each section
- */
-public enum LogOption {
-    case onlyDebug
-    case jsonPrettyPrint
-    case includeSeparator
-    
-    static var defaultOptions: [LogOption] {
-        return [.onlyDebug, .jsonPrettyPrint, .includeSeparator]
-    }
-}
-
 /**
  A struct that put together the relevant info from a Response
  */
@@ -87,7 +38,7 @@ public extension LoggeableRequest {
     /**
      Log the request and response with the given level and options
      */
-    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions, printer: @escaping Printer = defaultPrinter) -> Self {
+    public func log(level: LogLevel = .all, options: [LogOption] = LogOption.defaultOptions, printer: Printer = NativePrinter()) -> Self {
         
         guard level != .none else {
             return self

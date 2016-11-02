@@ -16,42 +16,6 @@ private let separatorString = "*******************************"
  */
 internal struct Logger {
     
-    private static func string(from data: Data?, prettyPrint: Bool) -> String? {
-        
-        guard let data = data else {
-            return nil
-        }
-        
-        var response: String? = nil
-        
-        if prettyPrint,
-            let json = try? JSONSerialization.jsonObject(with: data, options: []),
-            let prettyString = prettyPrintedString(from: json) {
-            response = prettyString
-        }
-            
-        else if let dataString = String.init(data: data, encoding: .utf8) {
-            response = dataString
-        }
-        
-        return response
-    }
-    
-    private static func prettyPrintedString(from json: Any?) -> String? {
-        guard let json = json else {
-            return nil
-        }
-        
-        var response: String? = nil
-        
-        if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
-            let dataString = String.init(data: data, encoding: .utf8) {
-            response = dataString
-        }
-        
-        return response
-    }
-    
     internal static func logRequest(request: URLRequest?, level: LogLevel, options: [LogOption], printer: Printer) {
         
         guard let request = request else {
@@ -70,10 +34,10 @@ internal struct Logger {
         case .all:
             let prettyPrint = options.contains(.jsonPrettyPrint)
             let body = string(from: request.httpBody, prettyPrint: prettyPrint) ?? nullString
-            printer("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)")
+            printer.print("\(openSeparator)[Request] \(method) '\(url)':\n\n[Headers]\n\(headers)\n\n[Body]\n\(body)\(closeSeparator)", phase: .request)
             
         case .info:
-            printer("\(openSeparator)[Request] \(method) '\(url)'\(closeSeparator)")
+            printer.print("\(openSeparator)[Request] \(method) '\(url)'\(closeSeparator)", phase: .request)
             
         default:
             break
@@ -115,18 +79,57 @@ internal struct Logger {
         let closeSeparator = options.contains(.includeSeparator) ? "\n\(separatorString)" : ""
         
         // log
-        let responseTitle = error == nil ? "Response" : "Response Error"
+        let success = (error == nil)
+        let responseTitle = success ? "Response" : "Response Error"
         switch level {
         case .all:
-            printer("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)")
+            printer.print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString):\n\n[Headers]:\n\(responseHeaders)\n\n[Body]\n\(responseData)\(closeSeparator)", phase: .response(success: success))
         case .info:
-            printer("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString)\(closeSeparator)")
+            printer.print("\(openSeparator)[\(responseTitle)] \(responseStatusCode) '\(requestUrl)' \(elapsedTimeString)\(closeSeparator)", phase: .response(success: success))
         case .error:
             if let error = error {
-                printer("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTimeString) s: \(error)\(closeSeparator)")
+                printer.print("\(openSeparator)[\(responseTitle)] \(requestMethod) '\(requestUrl)' \(elapsedTimeString) s: \(error)\(closeSeparator)", phase: .response(success: success))
             }
         default:
             break
         }
     }
+    
+    // MARK: - Private helpers
+    private static func string(from data: Data?, prettyPrint: Bool) -> String? {
+        
+        guard let data = data else {
+            return nil
+        }
+        
+        var response: String? = nil
+        
+        if prettyPrint,
+            let json = try? JSONSerialization.jsonObject(with: data, options: []),
+            let prettyString = prettyPrintedString(from: json) {
+            response = prettyString
+        }
+            
+        else if let dataString = String.init(data: data, encoding: .utf8) {
+            response = dataString
+        }
+        
+        return response
+    }
+    
+    private static func prettyPrintedString(from json: Any?) -> String? {
+        guard let json = json else {
+            return nil
+        }
+        
+        var response: String? = nil
+        
+        if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
+            let dataString = String.init(data: data, encoding: .utf8) {
+            response = dataString
+        }
+        
+        return response
+    }
+
 }
