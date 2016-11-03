@@ -95,10 +95,10 @@ As an example, let’s suppose you have [SwiftyBeaver](https://github.com/Swifty
 ````swift
 struct SwiftyBeaverPrinter: Printer {
     func print(_ string: String, phase: Phase) {
-        switch phase {
-        case let .response(success) where success == false:
+        if phase.isError {
             log.error(string)
-        default:
+        }
+        else {
             log.info(string)
         }
     }
