@@ -72,6 +72,16 @@ public enum LogOption {
 public enum Phase {
     case request
     case response(success: Bool)
+    
+    /// Tells if there is an error in the phase
+    public var isError: Bool {
+        switch self {
+        case let .response(success):
+            return !success
+        case .request:
+            return false
+        }
+    }
 }
 
 /// Instances that conforms with `Printer` protocol are able to print the information from a given request
@@ -87,6 +97,10 @@ public protocol Printer {
 
 /// A printer that just use the native `Swift.print` function to print the string.
 public struct NativePrinter: Printer {
+    
+    /// Creates a new instance
+    public init() {}
+    
     public func print(_ string: String, phase: Phase) {
         Swift.print(string)
     }

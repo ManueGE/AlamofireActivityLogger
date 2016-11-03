@@ -1,4 +1,7 @@
 # Change Log
+### 2.2.1 (3 November 2016)
+- Add var `isError` to `Phase` to help custom printers to distinguish error logs. 
+
 ### 2.2.0 (2 November 2016)
 - Add support for custom printers to allow integration with third party loggers. 
 
