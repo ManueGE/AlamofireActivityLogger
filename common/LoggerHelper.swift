@@ -32,9 +32,20 @@ struct Helper {
         
         request(url, method: .get)
             .validate()
-            .log(level: level, options: options)
+            .log(level: level, options: options, printer: NativePrinter())
             .responseData { (response) in
                 completion()
+        }
+    }
+}
+
+struct MyPrinter: Printer {
+    func print(_ string: String, phase: Phase) {
+        if phase.isError {
+            Swift.print("🍎\n\(string)")
+        }
+        else {
+            Swift.print("🍏\n\(string)")
         }
     }
 }
