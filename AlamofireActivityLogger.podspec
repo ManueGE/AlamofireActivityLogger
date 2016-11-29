@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = '8.0'
   spec.osx.deployment_target = '10.10'
   spec.watchos.deployment_target = '2.0'
-  spec.tvos.deployment_target = '8.0'
+  spec.tvos.deployment_target = '9.0'
 
   spec.source       = { :git => "https://github.com/ManueGE/AlamofireActivityLogger.git", :tag => "#{spec.version}" }
 
