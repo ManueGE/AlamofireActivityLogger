@@ -1,4 +1,8 @@
 # Change Log
+### 2.3.0 (29 November 2016)
+- Needs Alamofire 4.2.
+- Support iOS 8. 
+
 ### 2.2.1 (3 November 2016)
 - Add var `isError` to `Phase` to help custom printers to distinguish error logs. 
 
