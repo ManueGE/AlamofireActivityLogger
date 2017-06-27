@@ -16,6 +16,13 @@ public struct ResponseInfo {
     public var data: Data?
     public var error: Error?
     public var elapsedTime: TimeInterval
+  
+    public init(httpResponse: HTTPURLResponse?, data: Data?, error: Error?, elapsedTime: TimeInterval) {
+        self.httpResponse = httpResponse
+        self.data = data
+        self.error = error
+        self.elapsedTime = elapsedTime
+    }
 }
 
 /**
