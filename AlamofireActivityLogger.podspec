@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "AlamofireActivityLogger"
-  spec.version      = "2.3.0"
+  spec.version      = "2.4.0"
   spec.summary      = "A response serializer for Alamofire which logs both request and response"
   spec.description  = <<-DESC
   A response serializer for Alamofire which prints both request and responses. It provides 4 log levels and a few options to configure your logs.
@@ -22,9 +22,9 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc = true
   spec.framework = "Foundation"
-  spec.dependency "Alamofire", "~> 4.2"
+  spec.dependency "Alamofire", "~> 4.5"
   spec.source_files  = "alamofire_activity_logger/ActivityLogger/*.{swift}"
 
-  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  spec.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
 end

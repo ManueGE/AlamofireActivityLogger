@@ -53,7 +53,7 @@ public enum LogOption {
     case jsonPrettyPrint
     case includeSeparator
     
-    static var defaultOptions: [LogOption] {
+    public static var defaultOptions: [LogOption] {
         return [.onlyDebug, .jsonPrettyPrint, .includeSeparator]
     }
 }
