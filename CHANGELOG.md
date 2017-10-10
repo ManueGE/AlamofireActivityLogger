@@ -1,4 +1,8 @@
 # Change Log
+### 2.4.0 (10 October 2017)
+- Needs Alamofire 4.5.
+- Swift 4 support. 
+
 ### 2.3.0 (29 November 2016)
 - Needs Alamofire 4.2.
 - Support iOS 8. 
