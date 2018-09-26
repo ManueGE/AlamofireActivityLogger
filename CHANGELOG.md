@@ -1,4 +1,7 @@
 # Change Log
+### 2.5.0 (25 September 2018)
+- Needs Alamofire 4.7
+
 ### 2.4.0 (10 October 2017)
 - Needs Alamofire 4.5.
 - Swift 4 support. 
