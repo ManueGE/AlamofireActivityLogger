@@ -2,7 +2,7 @@
 
 abstract_target 'alamofire_activity_logger' do
 	use_frameworks!
-	pod 'Alamofire', '~> 4.5'
+	pod 'Alamofire', '~> 4.7'
     pod 'AlamofireActivityLogger', :path => '.'
     
     target 'ios' do
